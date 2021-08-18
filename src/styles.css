@@ -1,0 +1,34 @@
+html, body { height: 100%; }
+body { 
+    margin: 0 auto; width: 80%; background-color: #b4cad2; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+h1 {
+    padding-top: 20px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.mat-menu-item{
+    color: black;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+spa-alunos {
+    margin: 5px 0px;
+    display: block;
+    border-bottom: 5px solid #188a15;
+}
+spa-professores {
+    margin: 5px 0px 20px 0px;
+    display: block;
+    border-bottom: 5px solid #188a15;
+}
+spa-root {
+    padding-bottom: 30px;
+    display: block;
+}

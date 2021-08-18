@@ -1,0 +1,37 @@
+<h1>Listagem de Professores</h1>
+
+<section>
+  <button mat-raised-button color="primary" (click)="exibirProfessores($event)">Ocultar Professores</button>
+</section>
+
+<form *ngIf="exibeProfessores">
+
+  <mat-form-field appearance="standard">
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro..." #input>
+  </mat-form-field>
+    
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+    <ng-container [matColumnDef]="col" *ngFor="let col of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef>
+        {{col |titlecase }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field>
+          <mat-label>Teste: {{element[col]}}</mat-label>
+          <input [type]="dataSchema[col]" matInput [(ngModel)]="element[col]" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="5">Nenhum resultado para o filtro "{{input.value}}"</td>
+    </tr>
+  </table>
+
+</form>       
